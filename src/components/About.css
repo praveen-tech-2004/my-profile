@@ -1,0 +1,57 @@
+.about {
+  padding: 4rem 2rem;
+  background-color: #ecf0f1;
+  text-align: center;
+}
+
+.about h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+}
+
+.about p {
+  font-size: 1.1rem;
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: #34495e;
+}
+
+.about ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.about li {
+  background-color: #3498db;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.about li:hover {
+  transform: translateY(-5px);
+  background-color: #2980b9;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about h2 {
+    font-size: 2rem;
+  }
+
+  .about p {
+    font-size: 1rem;
+  }
+
+  .about ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}

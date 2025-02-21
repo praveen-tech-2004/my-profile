@@ -1,0 +1,35 @@
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: 1.6;
+  color: #333;
+}
+
+h1, h2, h3 {
+  margin: 0;
+  font-weight: bold;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  padding: 4rem 2rem;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  section {
+    padding: 2rem 1rem;
+  }
+}
