@@ -1,7 +1,10 @@
-const express = require('express');
-const cors = require('cors');
-const bodyParser = require('body-parser');
-const nodemailer = require('nodemailer');
+import express from 'express';
+import cors from 'cors';
+import bodyParser from 'body-parser';
+import nodemailer from 'nodemailer';
+import dotenv from 'dotenv';
+
+dotenv.config(); // Load environment variables from .env file
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,10 +15,10 @@ app.use(bodyParser.json());
 
 // Nodemailer Configuration
 const transporter = nodemailer.createTransport({
-  service: 'gmail', // Use your email service (e.g., Gmail, Outlook)
+  service: 'gmail',
   auth: {
-    user: 'your-email@gmail.com', // Replace with your email
-    pass: 'your-email-password', // Replace with your email password or app-specific password
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -23,20 +26,30 @@ const transporter = nodemailer.createTransport({
 app.post('/send-email', (req, res) => {
   const { name, email, message } = req.body;
 
+  // Input validation
+  if (!name || !email || !message) {
+    return res.status(400).send('All fields are required.');
+  }
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    return res.status(400).send('Invalid email format.');
+  }
+
   const mailOptions = {
-    from: 'your-email@gmail.com', // Sender email
-    to: 'your-email@gmail.com', // Receiver email (can be the same as sender)
+    from: email, // User's email address (the sender)
+    to: process.env.EMAIL_USER, // Your email address (the receiver)
     subject: `New Message from ${name} (${email})`,
     text: message,
   };
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error(error);
-      res.status(500).send('Error sending email');
+      console.error('Error sending email:', error);
+      return res.status(500).send('Error sending email');
     } else {
       console.log('Email sent: ' + info.response);
-      res.status(200).send('Email sent successfully');
+      return res.status(200).send('Email sent successfully');
     }
   });
 });

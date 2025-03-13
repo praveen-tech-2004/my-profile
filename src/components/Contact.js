@@ -16,6 +16,7 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setStatus('Sending...'); // Indicate that the message is being sent
 
     try {
       const response = await fetch('http://localhost:5000/send-email', {
@@ -30,10 +31,11 @@ const Contact = () => {
         setStatus('Message sent successfully!');
         setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus('Failed to send message. Please try again.');
+        const errorMessage = await response.text();
+        setStatus(`Failed to send message: ${errorMessage}`);
       }
     } catch (error) {
-      console.error(error);
+      console.error('Error:', error);
       setStatus('An error occurred. Please try again.');
     }
   };
