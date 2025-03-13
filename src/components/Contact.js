@@ -19,7 +19,7 @@ const Contact = () => {
     setStatus('Sending...'); // Indicate that the message is being sent
 
     try {
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://my-profile-phi-liart.vercel.app/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
