@@ -1,0 +1,37 @@
+/* CertificatesCube.css */
+.cube-scene {
+  width: 240px;
+  height: 240px;
+  perspective: 1000px;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  animation: spinCube 12s infinite linear;
+}
+
+.cube-face {
+  position: absolute;
+  width: 240px;
+  height: 240px;
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid #22d3ee;
+  border-radius: 1rem;
+  backface-visibility: hidden;
+}
+
+/* Positioning each face of the cube */
+.face1 { transform: rotateY(0deg) translateZ(120px); }
+.face2 { transform: rotateY(90deg) translateZ(120px); }
+.face3 { transform: rotateY(180deg) translateZ(120px); }
+.face4 { transform: rotateY(-90deg) translateZ(120px); }
+.face5 { transform: rotateX(90deg) translateZ(120px); }
+.face6 { transform: rotateX(-90deg) translateZ(120px); }
+
+@keyframes spinCube {
+  from { transform: rotateX(0deg) rotateY(0deg); }
+  to { transform: rotateX(360deg) rotateY(360deg); }
+}

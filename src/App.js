@@ -1,22 +1,30 @@
 import React from 'react';
 import Navbar from './components/Navbar';
 import Home from './components/Home';
-import About from './components/About';
+import Education from './components/Education';
+// import About from './components/About';
+import Summary from './components/Summary';
 import Projects from './components/Projects';
+import Certificates from './components/Certificates';
 import Contact from './components/Contact';
-import Summary from './components/Summary'; // Import Summary
-import Certificates from './components/Certificates'; // Import Certificates
-import './App.css';
+import Skills from './components/Skills';
+
+
 
 function App() {
   return (
-    <div className="App">
+    <div className="font-sans bg-gray-50 text-gray-800">
       <Navbar />
       <Home />
-      <About />
-      <Summary /> {/* Add Summary Section */}
+      <Summary />
+      
+          <Education />
+      <Skills />
+
+  
+      
       <Projects />
-      <Certificates /> {/* Add Certificates Section */}
+      <Certificates />
       <Contact />
     </div>
   );
