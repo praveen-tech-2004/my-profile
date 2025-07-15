@@ -22,10 +22,10 @@ const Contact = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        'service_vikjp7r',
-        'template_xgtrnmm',
+        'service_1p67j7e',
+        'template_tj6edrh',
         form.current,
-        'dyaT5jTV81XGGE35Y'
+        'Z2CUm81rmDOQ_Aklg'
       )
       .then(() => {
         setDone(true);
