@@ -16,7 +16,7 @@ const educationData = [
   },
   {
     title: 'Intermediate (XII), MPC',
-    institution: 'Mangal Vidyalayam', Tirupati',
+    institution: 'Mangal Vidyalayam, Tirupati',
     year: '2019 - 2021',
     aggregate: '93%',
     logo: narayanaLogo,
